@@ -1,0 +1,36 @@
+﻿<Window x:Class="HCIGame.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCIGame" Background="#333333"
+        mc:Ignorable="d" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        WindowStartupLocation="CenterScreen"
+        Title="Click Game" Height="450" Width="800">
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0"/>
+    </WindowChrome.WindowChrome>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="359*"/>
+            <ColumnDefinition Width="435*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1" Margin="0,0,-0.4,0.2">
+            <Button x:Name="btnMinimize" Content="_" Width="35" Height="35"
+                BorderBrush="Transparent" Background="Transparent" Click="btnMinimize_Click" Foreground="White"/>
+            <Button x:Name="btnMaximize" Content="🗖" Width="35" Height="35"
+                BorderBrush="Transparent" Background="Transparent" Click="btnMaximize_Click"  Foreground="White"/>
+            <Button x:Name="btnClose" Content="X" Width="35" Height="35"
+                BorderBrush="Transparent" Background="Transparent" Click="btnClose_Click" Foreground="White" />
+        </StackPanel>
+        <Canvas Name="MyCanvas" Margin="1,35,-0.4,0.2" Grid.RowSpan="2" Grid.ColumnSpan="2" MouseLeftButtonDown="ClickOnCanvas">
+            <Label Name ="txtScore" FontSize="18" FontWeight="Bold" Content="Score: 0"/>
+            <Label Name ="txtLastScore" FontSize="18" FontWeight="Bold" Content=" Last score: 0" Foreground="red" Canvas.Left="133"/>
+            <Rectangle Name="healthBar" Stroke="Black" Width="350" Height="27" Fill="Green" Canvas.Left="443"/>
+        </Canvas>
+    </Grid>
+</Window>
